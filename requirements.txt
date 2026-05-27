@@ -1,0 +1,11 @@
+langgraph
+langchain
+langchain-groq
+python-slugify
+pymupdf
+PyGithub
+python-dotenv
+fastapi
+uvicorn
+ipykernel
+python-multipart
