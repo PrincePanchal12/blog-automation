@@ -13,7 +13,7 @@ type DraftFile = {
   file_name: string;
 };
 
-const apiUrl = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000";
+const apiUrl = process.env.NEXT_PUBLIC_API_URL ?? "https://blog-automation-yns0.onrender.com";
 
 function inlineMarkdown(text: string) {
   const parts: ReactNode[] = [];
