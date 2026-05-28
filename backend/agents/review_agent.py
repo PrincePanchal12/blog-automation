@@ -3,6 +3,7 @@ from backend.core.llm import quality_llm as llm
 
 
 def review_agent(state):
+    print("--- [Node: review] Checking for quality issues and preparing report ---")
     content = clean_markdown_output(state["optimized_blog"])
     issues = quality_issues(content)
 

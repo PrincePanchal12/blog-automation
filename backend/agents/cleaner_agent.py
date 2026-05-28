@@ -2,6 +2,7 @@ from backend.core.llm import fast_llm as llm
 
 
 def content_cleaner_agent(state):
+    print("--- [Node: clean] Cleaning extracted PDF text ---")
 
     prompt = f"""
     You are cleaning extracted PDF text for an editor. The PDF is the source material.

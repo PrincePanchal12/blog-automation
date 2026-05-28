@@ -3,6 +3,7 @@ from backend.core.llm import quality_llm as llm
 
 
 def safety_agent(state):
+    print("--- [Node: safety] Performing safety, fact, and trust audits ---")
     content = clean_markdown_output(state["optimized_blog"])
 
     prompt = f"""

@@ -2,6 +2,7 @@ import fitz
 
 
 def pdf_extractor_agent(state):
+    print(f"--- [Node: extract] Extracting text from PDF: {state.get('pdf_path')} ---")
 
     pdf_path = state["pdf_path"]
 

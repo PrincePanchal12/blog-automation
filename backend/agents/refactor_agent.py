@@ -3,6 +3,7 @@ from backend.core.llm import writer_llm as llm
 
 
 def refactor_agent(state):
+    print("--- [Node: refactor] Revising draft based on editorial feedback ---")
     content = clean_markdown_output(state.get("blog") or state.get("raw_content") or "")
     source_instruction = (
         "The input originated in a PDF. Preserve supported details and attribution, "

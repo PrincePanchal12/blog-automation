@@ -13,6 +13,7 @@ from backend.agents.content_quality import (
 
 
 def mdx_agent(state):
+    print("--- [Node: mdx] Creating MDX metadata frontmatter ---")
     content = clean_markdown_output(state["optimized_blog"])
     title = article_title(state["topic"], content)
     slug = slugify(title)

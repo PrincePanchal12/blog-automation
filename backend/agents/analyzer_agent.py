@@ -3,6 +3,7 @@ from backend.core.llm import quality_llm as llm
 
 
 def analyzer_agent(state):
+    print("--- [Node: analyze] Auditing draft quality and SEO/GEO guidelines ---")
     content = clean_markdown_output(state.get("blog") or state.get("raw_content") or "")
     source_context = (
         "This article is derived from uploaded PDF source material. Flag claims that "

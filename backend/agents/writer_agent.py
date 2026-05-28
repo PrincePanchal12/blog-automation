@@ -2,6 +2,7 @@ from backend.core.llm import writer_llm as llm
 
 
 def writer_agent(state):
+    print("--- [Node: writer] Drafting the initial article content ---")
 
     prompt = f"""
     You are a senior editor writing a trustworthy, practical article for a real reader.

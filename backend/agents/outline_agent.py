@@ -2,6 +2,7 @@ from backend.core.llm import writer_llm as llm
 
 
 def outline_agent(state):
+    print(f"--- [Node: outline] Planning article outline for: {state.get('topic')} ---")
 
     prompt = f"""
     You are a senior content strategist planning an evidence-conscious article.
