@@ -13,7 +13,7 @@ app = FastAPI(
 
 frontend_origins = os.getenv(
     "FRONTEND_ORIGINS",
-    "http://localhost:3000,http://127.0.0.1:3000,https://blog-automation-eta.vercel.app,https://blog-automation-git-main-prince-panchal-s-projects.vercel.app",
+    "http://localhost:3000,http://127.0.0.1:3000",
 ).split(",")
 
 app.add_middleware(
