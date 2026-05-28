@@ -196,7 +196,7 @@ export default function Home() {
   function showRequestError(caughtError: unknown, fallback: string) {
     setError(
       caughtError instanceof TypeError
-        ? "Cannot reach the backend. Start it on port 8000 and try again."
+        ? `Cannot reach the backend at ${apiUrl}. Please check if the server is running and CORS is configured.`
         : caughtError instanceof Error
           ? caughtError.message
           : fallback,
