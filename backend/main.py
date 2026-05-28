@@ -1,7 +1,8 @@
 import os
 
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
 
 from backend.api.routes import router
 
@@ -23,6 +24,29 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
+@app.exception_handler(Exception)
+async def global_exception_handler(request: Request, exc: Exception):
+    origin = request.headers.get("origin")
+    headers = {}
+    if origin:
+        headers["Access-Control-Allow-Origin"] = origin
+        headers["Access-Control-Allow-Credentials"] = "true"
+        
+    error_msg = str(exc)
+    if "Rate limit reached" in error_msg or "429" in error_msg:
+        detail = "Groq AI Token Limit Reached! Please wait a few minutes or use a different API key."
+    elif "AuthenticationError" in error_msg or "401" in error_msg:
+        detail = "Invalid Groq API Key! Please check your environment variables."
+    else:
+        detail = f"Internal Server Error: {error_msg}"
+
+    return JSONResponse(
+        status_code=500,
+        content={"detail": detail},
+        headers=headers
+    )
 
 
 app.include_router(router)
